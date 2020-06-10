@@ -1,0 +1,24 @@
+Package: venn.compute
+Title: COMPUTE VENN DIAGRAM ELEMENT INTERSECTIONS
+Version: 1.0.0
+Authors@R: c(
+    person(given = "Edward",
+           family = "Villegas-Pulgarin",
+           role = c("aut", "cre"),
+           email = "cosmoscalibur@gmail.com",
+           comment = c(ORCID = "0000-0001-9390-8795")),
+    person(given = "Juliana",
+           family = "Gomez-Moreno",
+           role = c("ctb", "ccp"),
+           email = "juli.rinoa@gmail.com"))
+Description: Compute and write specific elements of intersection in
+    Venn diagram. You can choose write in files or save in variable.
+License: MIT + file LICENSE
+URL: https://github.com/cosmoscalibur/venn.compute
+BugReports: https://github.com/cosmoscalibur/venn.compute/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports:
+  VennDiagram
