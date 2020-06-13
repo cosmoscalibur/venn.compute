@@ -33,25 +33,24 @@ venn_compute.join_name <- function(name1, name2){
 #' 
 #' @param named_sets A named list of character elements to include in Venn
 #'  diagram.
-#' @param output_dir A string represent output directory to write files.
-#' @param inmem A boolean to indicate writing in files (FALSE) or
-#'  in memory (TRUE as default).
+#' @param output_dir A string represent output directory to write files. If
+#'  \code{NULL} (as default), use in memory output.
 #' @return A named list of specific elements in Venn diagram.
 #' @examples
 #' a <- list(c("1", "2", "3"), c("1", "5"), c("1", "5", "7"))
 #' names(a) <- c("a", "b", "c")
 #' venn.compute_specific(a)
 #' \dontrun{
-#' venn.compute_specific(a, FALSE, "/home/user/Pictures")
+#' venn.compute_specific(a, "/home/user/Pictures")
 #' }
 #' @importFrom utils combn
 #' @export
-venn.compute_specific <- function(named_sets, inmem=TRUE, output_dir=NULL){
+venn.compute_specific <- function(named_sets, output_dir=NULL){
   n_els <- length(named_sets)
   els <- n_els
   set_names <- names(named_sets)
   u_set <- list()
-  if (inmem){
+  if (is.null(output_dir)){
     specifics <- list()
     specifics_name <- list() 
   }
@@ -64,7 +63,7 @@ venn.compute_specific <- function(named_sets, inmem=TRUE, output_dir=NULL){
       name_file <- Reduce(venn_compute.join_name, intersect_names[, c_combo])
       specific <- setdiff(Reduce(intersect, combo[, c_combo]), u_set)
       u_set <- union(u_set, specific)
-      if (!inmem){
+      if (!is.null(output_dir)){
         fid <- file(file.path(output_dir, paste(name_file, ".txt", sep="")))
         writeLines(specific, con = fid)
         close(fid)               
@@ -75,7 +74,7 @@ venn.compute_specific <- function(named_sets, inmem=TRUE, output_dir=NULL){
     }
     els <- els - 1
   }
-  if (inmem){
+  if (is.null(output_dir)){
     names(specifics) <- specifics_name
     specifics
   }
@@ -101,7 +100,7 @@ venn.compute_specific <- function(named_sets, inmem=TRUE, output_dir=NULL){
 #' }
 #' @export
 venn.compute_plot <- function(named_sets, output_dir){
-  venn.compute_specific(named_sets, FALSE, output_dir)
+  venn.compute_specific(named_sets, output_dir)
   VennDiagram::venn.diagram(x=named_sets,
                category.names = names(named_sets),
                filename = file.path(output_dir,

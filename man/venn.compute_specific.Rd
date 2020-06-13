@@ -6,16 +6,14 @@
 specified in list of lists of characters as returned by
 \code{read.lists_from_files}.}
 \usage{
-venn.compute_specific(named_sets, inmem = TRUE, output_dir = NULL)
+venn.compute_specific(named_sets, output_dir = NULL)
 }
 \arguments{
 \item{named_sets}{A named list of character elements to include in Venn
 diagram.}
 
-\item{inmem}{A boolean to indicate writing in files (FALSE) or
-in memory (TRUE as default).}
-
-\item{output_dir}{A string represent output directory to write files.}
+\item{output_dir}{A string represent output directory to write files. If
+\code{NULL} (as default), use in memory output.}
 }
 \value{
 A named list of specific elements in Venn diagram.
@@ -30,6 +28,6 @@ a <- list(c("1", "2", "3"), c("1", "5"), c("1", "5", "7"))
 names(a) <- c("a", "b", "c")
 venn.compute_specific(a)
 \dontrun{
-venn.compute_specific(a, FALSE, "/home/user/Pictures")
+venn.compute_specific(a, "/home/user/Pictures")
 }
 }
