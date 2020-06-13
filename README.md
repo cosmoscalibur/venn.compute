@@ -1,6 +1,6 @@
 # Venn Compute
 
-This package is intended to compute specific elements in intersections of Venn
+This R package is intended to compute specific elements in intersections of Venn
 diagram instead of plot.
 
 - Custom reader of files to create list of character arrays (such requiered for
