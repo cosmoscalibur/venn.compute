@@ -9,7 +9,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-9390-8795")),
     person(given = "Juliana",
            family = "Gomez-Moreno",
-           role = c("ctb", "ccp"),
+           role = "ccp",
            email = "juli.rinoa@gmail.com"))
 Description: Compute and write specific elements of intersection in
     Venn diagram. You can choose write in files or save in variable.
@@ -22,3 +22,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Imports:
   VennDiagram
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

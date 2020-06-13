@@ -1,0 +1,71 @@
+---
+title: "Compute elements in Venn diagram"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{compute}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_knit$set(root.dir = '../')
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This package is used to compute specific elements of the areas in Venn diagrams
+and report these in files or memory in an easy way to understand
+(custom names -\code{genes1_genes2}- instead of coded names -\code{n12}-).
+
+There is an option to include the plot saved to *PNG* file with
+\code{VennDiagram} package.
+
+First, load the package.
+
+```{r setup}
+library(venn.compute)
+```
+
+# Read files
+
+This is a custom reader to include multiple files and associate its custom
+names, returned a named list of character arrays (each element is an element
+line of the file).
+
+```{r read, results='asis'}
+sets <- read.lists_from_files(c("test/primes.txt", "test/even.txt", "test/fibo.txt"), c("primes", "even", "fibo"))
+print(sets)
+```
+
+# Compute intersections and specific elements
+
+Now you can compute specific elements of Venn diagram intersections.
+
+```{r compute_mem, results='asis'}
+venn.compute_specific(sets)
+```
+
+If you need to write sets in files, add an output path. Files are written
+using convention of join sets name with underscore.
+
+```{r compute_file, results='asis'}
+venn.compute_specific(sets, output_dir = "test/output")
+dir("test/output")
+```
+
+# Plot Venn diagram
+
+Finally, if you want to save plot, invoke this function with the same arguments
+as before.
+
+```{r plot, results='asis'}
+venn.compute_plot(sets, output_dir = "test/output")
+dir("test/output")
+```
+
+```{r, out.width='60%', fig.align='center', fig.cap='Venn diagram example generated with this code'}
+knitr::include_graphics('../test/output/primes_even_fibo.png')
+```
+

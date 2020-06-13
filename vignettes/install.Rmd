@@ -1,0 +1,34 @@
+---
+title: "Install and load"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+You can install from GitHub as:
+
+```{r install, eval=FALSE}
+devtools::install_github("cosmoscalibur/venn.compute")
+```
+
+If an error about TAR executable is showed (common in Linux with Anaconda), you
+need to setup your TAR path.
+
+```{r tar, eval=FALSE}
+Sys.setenv(TAR = "/bin/tar")
+```
+
+Now, load the package.
+
+```{r setup, eval=FALSE}
+library(venn.compute)
+```
