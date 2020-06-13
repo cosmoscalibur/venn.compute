@@ -1,0 +1,5 @@
+inst/doc
+.Rhistory
+.ipynb_checkpoints/
+*.html
+output/
