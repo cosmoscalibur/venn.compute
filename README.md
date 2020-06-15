@@ -39,7 +39,10 @@ names, returned a named list of character arrays (each element is an element
 line of the file).
 
 ```r
-sets <- read.lists_from_files(c("tests/primes.txt", "tests/even.txt", "tests/fibo.txt"), c("primes", "even", "fibo"))
+sets <- read.lists_from_files(c(file.path("tests", "primes.txt"),
+                                file.path("tests", "even.txt"),
+                                file.path("tests", "fibo.txt")),
+                              c("primes", "even", "fibo"))
 ```
 
 ### Compute intersections and specific elements
@@ -54,7 +57,7 @@ If you need to write sets in files, add an output path. Files are written
 using convention of join sets name with underscore.
 
 ```r
-venn.compute_specific(sets, output_dir = "tests/output")
+venn.compute_specific(sets, output_dir = file.path("tests", "output"))
 ```
 
 ### Plot Venn diagram
@@ -63,6 +66,6 @@ Finally, if you want to save plot, invoke this function with the same arguments
 as before.
 
 ```r
-venn.compute_plot(sets, output_dir = "tests/output")
+venn.compute_plot(sets, output_dir = file.path("tests", "output"))
 ```
 
