@@ -64,6 +64,7 @@ venn.compute_specific <- function(named_sets, output_dir=NULL){
       specific <- setdiff(Reduce(intersect, combo[, c_combo]), u_set)
       u_set <- union(u_set, specific)
       if (!is.null(output_dir)){
+        dir.create(output_dir, showWarnings = FALSE)
         fid <- file(file.path(output_dir, paste(name_file, ".txt", sep="")))
         writeLines(specific, con = fid)
         close(fid)               
