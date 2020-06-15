@@ -1,6 +1,6 @@
 Package: venn.compute
 Title: COMPUTE VENN DIAGRAM ELEMENT INTERSECTIONS
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
     person(given = "Edward",
            family = "Villegas-Pulgarin",
