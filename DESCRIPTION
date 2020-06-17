@@ -11,6 +11,10 @@ Authors@R: c(
            family = "Gomez-Moreno",
            role = "ccp",
            email = "juli.rinoa@gmail.com"))
+Author: Edward Villegas-Pulgarin [aut, cre]
+    (<https://orcid.org/0000-0001-9390-8795>),
+    Juliana Gomez-Moreno [ccp]
+Maintainer: Edward Villegas-Pulgarin <cosmoscalibur@gmail.com>
 Description: Compute and write specific elements of intersection in
     Venn diagram. You can choose write in files or save in variable.
 License: MIT + file LICENSE
